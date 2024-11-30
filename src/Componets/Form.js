@@ -7,6 +7,7 @@ class Form extends Component {
     this.state = {
       username: "",
       comment: "",
+      tutorial: "",
     };
   }
   usernamehandler = (event) => {
@@ -17,6 +18,11 @@ class Form extends Component {
   commenthandler = (event) => {
     this.setState({
       comment: event.target.value,
+    });
+  };
+  listhandle = (event) => {
+    this.setState({
+      tutorial: event.target.value,
     });
   };
   render() {
@@ -37,6 +43,15 @@ class Form extends Component {
             onChange={this.commenthandler}
           ></textarea>
         </div>
+        <div>
+          <lable>tutorial</lable>
+          <select value={this.state.tutorial} onChange={this.listhandle}>
+            <option value="js">js</option>
+            <option value="java">java</option>
+            <option value="angular">angular</option>
+          </select>
+        </div>
+        <button type="submit">submit</button>
       </form>
     );
   }

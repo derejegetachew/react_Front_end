@@ -13,6 +13,11 @@ import Lists from "./Componets/Lists";
 import Style from "./Componets/Style";
 import Style_inline from "./Componets/Style_inline";
 import Form from "./Componets/Form";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Add from "./pages/About";
+
 function App() {
   return (
     <div className="App">
@@ -34,6 +39,19 @@ function App() {
       <Style heading={false} />
       <Style_inline />
       <Form />
+      <Router>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/Contact">Contact</Link>
+          <Link to="/About">About</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<Add />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="*" element={<h1> page is not found</h1>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
